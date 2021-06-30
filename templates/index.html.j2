@@ -72,10 +72,8 @@
 
 {% for server in servers %}
 <h3>{{server}} Server</h3>
-<a href="">
-<div id="indicator{{server}}">
+<div id="indicator{{server}}" style="cursor: pointer;">
 </div>
-</a>
 <br>
 {% endfor %}
 
@@ -83,5 +81,6 @@
 {% for server in servers %}
 <script src="{{server}}.js"></script>
 {% endfor %}
+
 </body>
 </html>

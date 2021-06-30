@@ -1,6 +1,6 @@
-var myBox = $("#indicator{{name}}");
+var myBox{{name}} = $("#indicator{{name}}");
 
-function wake() {
+function wake{{name}}() {
     $.ajax({
         type: "POST",
         url: "/wake",
@@ -10,8 +10,8 @@ function wake() {
     });
 }
 
-myBox.click(function() {
-        wake();
+myBox{{name}}.click(function() {
+        wake{{name}}();
 });
 
 async function ping() {
