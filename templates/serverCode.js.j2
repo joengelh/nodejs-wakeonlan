@@ -1,0 +1,39 @@
+var myBox = $("#indicator{{name}}");
+
+function wake() {
+    $.ajax({
+        type: "POST",
+        url: "/wake",
+        data: JSON.stringify({ mac: '{{mac}}' }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+    });
+}
+
+myBox.click(function() {
+        wake();
+});
+
+async function ping() {
+    $.ajax({
+        type: "POST",
+        url: "/ping",
+        data: JSON.stringify({ address: '{{ip}}' }),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: function(data){
+            console.log(data);
+            if (data == 0) {
+                $('#indicator{{name}}').css('background-color', 'green');
+            } else {
+                $('#indicator{{name}}').css('background-color', 'red');
+            }
+        },
+        error: function(errMsg) {
+            console.error(errMsg);
+        }
+    });
+}
+
+ping();
+setInterval(ping, 10000);

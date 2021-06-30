@@ -1,2 +1,12 @@
-# nodejs-wakeonlan
-nodejs server which reads servers from a csv, monitors theire status and is capable of waking them over lan using a nodejs backend and a standard HTML/CSS/JS frontend.
+# nodejs wake on lan server
+simple docker WOL Server, reading CSV with Servers MAC Addresses, WOL Port, IP Address and broadcast Address
+
+### setup
+
+Fill out the ``servers.csv`` with the servers you want to montor and wake.
+
+1. Make shure nodejs, npm and python3 are installed on your system.
+2. Install the required python packages using ``pip install -r requirements.txt``
+3. Install the required nodejs packages using ``npm install``
+4. Render the Jinja2 templates using ``python3 renderJ2.py``
+5. Start the server using ``pm2 start index.js``

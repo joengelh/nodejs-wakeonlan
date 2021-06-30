@@ -1,0 +1,26 @@
+{
+  "name": "docker-wol-webserver",
+  "version": "1.0.0",
+  "description": "simple docker WOL Server, reading CSV with Servers MAC Addresses, WOL Port and broadcast Address",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joengelh/docker-wol-webserver.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joengelh/docker-wol-webserver/issues"
+  },
+  "homepage": "https://github.com/joengelh/docker-wol-webserver#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "net-ping": "^1.2.3",
+    "pm2": "^5.1.0",
+    "portscanner": "^2.2.0",
+    "wake_on_lan": "^1.0.0"
+  }
+}

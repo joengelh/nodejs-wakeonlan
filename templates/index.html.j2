@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache"/>
+    <meta http-equiv="Content-Security-Policy" content="default-src *  data: blob: filesystem: about: ws: wss: 'unsafe-inline' 'unsafe-eval' 'unsafe-dynamic'; script-src * 'unsafe-inline' 'unsafe-eval'; connect-src * 'unsafe-inline'; img-src * data: blob: 'unsafe-inline'; frame-src *; style-src * data: blob: 'unsafe-inline'; font-src * data: blob: 'unsafe-inline';"/>
+    <meta 
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./site.webmanifest">
+    <link 
+        href="https://fonts.googleapis.com/css?family=Open+Sans"
+        rel="stylesheet">
+
+    <title>WOL Server</title>
+
+    <style>
+
+        :root {
+            --bg-color: rgba(12, 5, 31, 0.945);
+            --text-color: rgb(98, 166, 255);
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+	    font-size: large;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+    
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 60vh;
+        }
+
+        @media(prefers-color-scheme: dark) {
+            :root {
+                --bg-color: rgb(41, 41, 41);;
+                --text-color: orange;
+            }
+            p {
+                color: white;
+            }
+        }
+{% for server in servers %}
+        #indicator{{server}} {
+		position: relative; 
+		width: 50px;
+                height: 50px;
+		background-color: red;
+		border: 1px solid #dddddd;
+	}
+{% endfor %}
+
+    </style>
+    
+</head>
+<body>
+<center>
+
+<h2>WOL Server, click to wake.</h2>
+<br>
+
+{% for server in servers %}
+<h3>{{server}} Server</h3>
+<a href="">
+<div id="indicator{{server}}">
+</div>
+</a>
+<br>
+{% endfor %}
+
+</center>
+{% for server in servers %}
+<script src="{{server}}.js"></script>
+{% endfor %}
+</body>
+</html>
