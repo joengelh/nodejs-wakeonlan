@@ -14,7 +14,7 @@ myBox{{name}}.click(function() {
         wake{{name}}();
 });
 
-async function ping() {
+async function ping{{name}}() {
     $.ajax({
         type: "POST",
         url: "/ping",
@@ -35,5 +35,5 @@ async function ping() {
     });
 }
 
-ping();
-setInterval(ping, 10000);
+ping{{name}}();
+setInterval(ping{{name}}, 10000);
