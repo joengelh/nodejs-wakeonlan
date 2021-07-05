@@ -1,5 +1,6 @@
 # nodejs wake on lan server
-simple docker WOL Server, reading CSV with Servers MAC Addresses, WOL Port, IP Address and broadcast Address
+A simple nodejs WOL Server, reading MAC Addresses, WOL Port, IP Address and broadcast Address of the clients under management from the ``servers.csv``.
+Thereafter enabling the user to send WOL Packages to the specified clients and monitor their status using the webui on Port 7500.
 
 ### setup
 
