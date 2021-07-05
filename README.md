@@ -9,7 +9,7 @@ Fill out the ``servers.csv`` with the servers you want to montor and wake.
 2. Install the required python packages using ``pip3 install -r requirements.txt``
 3. Install the required nodejs packages using ``npm install; npm install -g pm2``
 4. Render the Jinja2 templates using ``python3 renderJ2.py``
-i. Start the server using ``pm2 start index.js``
+5. Start the server using ``pm2 start index.js``
 
 ### contributors
 
