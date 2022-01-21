@@ -14,12 +14,12 @@ for row in csvFile:
     result[key] = row
 
 #new enviroment to render templates in
-env = Environment(loader=FileSystemLoader('templates'))
+env = Environment(loader=FileSystemLoader('app/templates'))
 
 #render html template
 htmlJ2 = env.get_template('index.html.j2')
 htmlParsed = htmlJ2.render(servers=result.keys())
-with open("./public/index.html", "w") as html:
+with open("./app/public/index.html", "w") as html:
     html.write(htmlParsed)
 
 #render scripts from templates
@@ -28,6 +28,6 @@ for server in result.keys():
     serverCodeParsed = serverCodeJ2.render(name=server,
             ip=result.get(server)["ip"],
             mac=result.get(server)["mac"])
-    serverCodeName = "./public/" + str(server) + ".js"
+    serverCodeName = "./app/public/" + str(server) + ".js"
     with open(serverCodeName, "w") as serverCode:
         serverCode.write(serverCodeParsed)
