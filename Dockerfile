@@ -42,17 +42,19 @@ RUN locale-gen en_US.UTF-8
 # Upgrade Pip to latest version working properly with Python2
 RUN python3 -m pip install --no-cache-dir --upgrade "pip"
 
+# Change working directory to app
+WORKDIR "/app"
+
 # Install Ansible via Pip.
 RUN pip3 install -r /app/requirements.txt
 RUN npm install
 
-# Render jinja2 tenplates
+# Render jinja2 tenplates and change work dir beforehand
+WORKDIR /
 RUN python3 /renderJ2.py
 
-# Change working directory to app
-WORKDIR "/app"
-
-EXPOSE 8080
+# Change working directory back to app
+WORKDIR "app/"
 
 #run ssh service  forever
 CMD ["node", "index.js"] 

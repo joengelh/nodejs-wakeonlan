@@ -2,13 +2,13 @@
 var util = require('util'),
     exec = require('child_process').exec,
     child;
-var wol = require('wake_on_lan');
 var ping = require('net-ping');
 var express = require('express');
 var bodyParser = require('body-parser');
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
+var wol = require('wake_on_lan');
 
 // serve static index.html
 app.use(function(req, res, next) {
