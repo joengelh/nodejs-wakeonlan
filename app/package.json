@@ -19,7 +19,6 @@
   "dependencies": {
     "express": "^4.17.1",
     "net-ping": "^1.2.3",
-    "pm2": "^5.1.0",
     "portscanner": "^2.2.0",
     "wake_on_lan": "^1.0.0"
   }
