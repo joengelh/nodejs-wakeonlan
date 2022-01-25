@@ -3,7 +3,6 @@ FROM ubuntu:latest
 
 #include known_hosts
 RUN mkdir -p /app
-WORKDIR "/app"
 ADD app /app
 ADD renderJ2.py /
 ADD servers.csv /
@@ -14,6 +13,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
        nodejs \
+       npm \
        apt-utils \
        build-essential \
        locales \
@@ -42,15 +42,17 @@ RUN locale-gen en_US.UTF-8
 # Upgrade Pip to latest version working properly with Python2
 RUN python3 -m pip install --no-cache-dir --upgrade "pip"
 
-# Change working directory to app
-WORKDIR /app
+# Install Ansible via Pip.
+RUN pip3 install -r /app/requirements.txt
+RUN npm install
 
 # Render jinja2 tenplates
 RUN python3 /renderJ2.py
 
-# Install Ansible via Pip.
-RUN pip3 install r app/requirements.txt
-RUN npm install
+# Change working directory to app
+WORKDIR "/app"
+
+EXPOSE 8080
 
 #run ssh service  forever
-CMD ["pm2", "start", "index.js"] 
+CMD ["node", "index.js"] 

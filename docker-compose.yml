@@ -6,4 +6,4 @@ services:
    restart: always
    container_name: nodejswol
    ports:
-   - "18080:8080"
+   - "8080:8080"
