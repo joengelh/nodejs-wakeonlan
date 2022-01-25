@@ -2,7 +2,13 @@
 A simple nodejs WOL Server, reading MAC Addresses, WOL Port, IP Address and broadcast Address of the clients under management from the ``servers.csv``.
 Thereafter enabling the user to send WOL Packages to the specified clients and monitor their status using the webui on Port 8080.
 
-### Setup
+### Setup with docker compose
+
+1. Fill out the ``servers.csv`` with the servers you want to montor and wake
+2. Install Docker, Docker Compose and make user part of Docker group. For this you can use this [Ansible Project](https://github.com/joengelh/ansible-kvm) hosted on GitHub.
+2. Run ``docker-compose up -d --build``
+
+### Setup without docker compose
 
 1. Fill out the ``servers.csv`` with the servers you want to montor and wake
 2. Install nodejs, python3 and pip
